@@ -16,8 +16,8 @@ How do I use this?
 3. Install some basic requirements using ``pip install -r requirements.txt``. You *are* using pip, right?
 4. You'll need to specify a value for ``SECRET_KEY`` in ``settings/base.py``. By default, Django concocts a random 50-character alphanumeric string for this value.
 5. run ``./manage.py collectstatic``.
-5. Create an app instance on ep.io, and upload this app there.
-6. There is no step 6.
+6. Create an app instance on ep.io, and upload this app there.
+7. There is no step 7.
 
 
 How does this work?
