@@ -4,6 +4,6 @@
 *.un~
 *.db
 *.sublime-project
-.sass_cache/
+.sass-cache/
 static_root/
 settings/local.py

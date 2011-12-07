@@ -15,8 +15,10 @@ How do I use this?
 2. Create a virtualenv for your project. You *are* using virtualenv, right?
 3. Install some basic requirements using ``pip install -r requirements.txt``. You *are* using pip, right?
 4. You'll need to specify a value for ``SECRET_KEY`` in ``settings/base.py``. By default, Django concocts a random 50-character alphanumeric string for this value.
+5. run ``./manage.py collectstatic``.
 5. Create an app instance on ep.io, and upload this app there.
 6. There is no step 6.
+
 
 How does this work?
 ===================
@@ -33,8 +35,16 @@ So you fire up a terminal, and recite the following incantation::
 
 And voila, your POSTed data is visible when you refresh the browser.
 
+
+What's the license?
+===================
+
+BSD. See the ``LICENSE.txt`` file for the full official bits.
+
+
 Is this totally ghetto?
 =======================
 
 Yes. Yes it is. This hack was written entirely between the hours of midnight
 and 3 A.M.
+

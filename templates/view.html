@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block subtitle %}#{{ id }}{% endblock subtitle %}
+
+{% block extra_js %}
+    <script src="{{ STATIC_URL }}js/bootstrap-tabs.js"></script>
+    <script>
+        $(function () {
+            $('.pills').pills();
+        });
+    </script>
+{% endblock extra_js %}
+
+{% block body %}
+<header class="topbar">
+    <div class="topbar-inner">
+        <div class="container">
+            <a href="{% url view id%}" class="brand">#{{ id }}</a>
+            <p>{{ posts|length }} post{{ posts|length|pluralize }} &middot; Make a POST request to this URL, see its content below.</p>
+        </div>
+    </div>
+</header>
+<div class="container" id="bodywrapper">
+    {% for post in posts %}
+    <article>
+        <header class="page-header">
+            <h1>Post {{ forloop.counter }}</h1>        
+        </header>
+        <div class="row">
+            <div class="span2">
+                <p class="muted post-timestamp">{{ post.timestamp }}</p>
+            </div>
+            <div class="span14">
+                <ul class="pills">
+                    <li class="active"><a href="#{{ forloop.counter }}_content">Content</a></li>
+                    <li><a href="#{{ forloop.counter }}_headers">Headers</a></li>
+                </ul>
+                <div class="pill-content">
+                    <div id="{{ forloop.counter }}_content" class="active">
+                        <table class="bordered-table zebra-striped">
+                            {% for param, value in post.body.items %}
+                                <tr>
+                                    <th>{{ param }}</th>
+                                    <td>{{ value }}</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                    <div id="{{ forloop.counter }}_headers">
+                        <table class="bordered-table zebra-striped">
+                            {% for header, value in post.headers.items %}
+                                <tr>
+                                    <th>{{ header }}</th>
+                                    <td>{{ value }}</td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>        
+        </div>
+
+    </article>
+    {% empty %}
+    <h1>Looks like you haven't made any POSTs yet.</h1>
+    <p>Go ahead and post to this URL, then refresh this page.</p>
+    {% endfor %}    
+</div>
+
+{% endblock body %}
