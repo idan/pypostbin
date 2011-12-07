@@ -1,0 +1,9 @@
+*.pyc
+*.pyo
+*.swp
+*.un~
+*.db
+*.sublime-project
+.sass_cache/
+static_root/
+settings/local.py
